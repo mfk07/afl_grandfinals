@@ -33,23 +33,31 @@ html {
 	height:100%;
 }
 body {
-	display: flex;
-	flex-flow: row nowrap;
 	font-family: 'titillium_webregular';
 	margin: 0;
+    width: 100%;
 }
+
+a {
+    color:#ffffff;
+}
+
+a:visited {
+    color: #ffffff;
+  }
 
 .page-heading {
 	font-size: 44px;
     font-family: 'titillium_webbold';
     text-align: center;
     margin: 0;
-    padding: 75px 0 0 0;
+    padding: 25px 0 0 0;
     color: #ffffff;
 }
 
 h2 {
 	font-family: 'titillium_webbold';
+    font-size: 32px;
     text-align: center;
     color: #000000;
 }
@@ -62,122 +70,40 @@ h2 {
     background-position: center;
 }
 
-@media only screen and (max-width: 1000px){
-	.about-body {
-	 	flex-direction: column;
-		padding: 20px;
-	}
-	#menu {
-		padding: 5px;
-	}
-	#menu li {
-		display: none;
-	}
-	#menu-title {
-		display: none;
-	}
-	.burger-menu {
-		/*padding: 25px 0 0 5px;*/
-		height: 70px;
-	}
-	
-	.burger-menu img {
-		width: 80px;
-	}
-	
-	.main-content {
-		padding: 5px;
-	}
-	
-}
-
-/*CONTACT PAGE STYLING*/ 
-.contact-links {
+#menu {
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
-	justify-content: space-around;
-	padding: 50px;
+	justify-content: flex-start;
 }
 
-.links img{
-	background-color: #ffffff;
-	flex-flow: row wrap;
-	height: 100px;
-	width: 100px;
-	border-radius: 50%;
-	flex: 25%;
+#menu li {
+	list-style-type: none;
+	padding: 25px 0 0 35px;
+    color: #ffffff;
 }
 
-#email img{
-	padding: 25px;
-}
-
-#contact-image {
-	width: 100%;
-	height: auto;
-}
-
-@media only screen and (max-width: 1000px){
-	.about-body {
-	 	flex-direction: column;
-		padding: 20px;
-	}
-	#menu {
-		padding: 5px;
-	}
-	#menu li {
-		display: none;
-	}
-	#menu-title {
-		display: none;
-	}
-	.burger-menu {
-		display: flex;
-	}
-	
-	.burger-menu img {
-		background-color: #ffffff;
-		border-radius: 50%;
-	}
-	.main-content {
-		padding: 5px;
-	}
-	.about {
-		display: none;
-	}
-	
-}
-
-/*PORTFOLIO PAGE STYLING*/
-#portfolio-image {
-	width: 100%;
-	height:auto;
-	max-height:700px;
-}
-	
-/*PORTFOLIO PAGE STYLING*/
-.portfolio-items {
+.display-div {
 	display: flex;
 	flex-wrap: wrap;
-	color: white;
+	color: black;
 	justify-content: space-around;
 }
 	
-.projects {
+.winners-box {
 	display: flex;
 	flex-flow: column wrap;
 	align-items: center;
 	flex: 33%;
 }
 
-.portfolio-placeholder {
+.winners-image {
 	height: 200px;
 	width: 200px;
-	border-radius: 33%;
+    object-fit: cover;
 }
 
-.project-description {
+.match-stats {
 	width: 65%;
 	display: flex;
 	flex-direction: column;
@@ -186,27 +112,17 @@ h2 {
 	position: relative;
 	bottom: 27px;
 	font-weight: 200;
-
 }
 
-@media only screen and (max-width: 768px){
-	.landing-page {
-		max-width: 768px;
-		display: flex;
-	 	flex-direction: column;
-	}
-	#laptop-image img {
-			padding: 75px 0 0 0;
-		}
+h6.team-name {
+    font-family: 'titillium_webbold';
+    font-size: 20px;
+    text-align: center;
+    margin: 25px 0 0 0;
 }
-	
-@media only screen and (max-width: 576px){
-	.portfolio-items {
-		max-width: 576px;
-		display: flex;
-	 	flex-direction: column;
- } 
-	.portfolio-placeholder img {
-			padding: 20px 0 0 0;
-		}
+
+.match-stats p {
+    margin: 0;
+    text-align: center;
+    font-size: 16px;
 }
