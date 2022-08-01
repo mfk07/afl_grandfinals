@@ -1,0 +1,137 @@
+@font-face {
+    font-family: 'titillium_webregular';
+    src: url('./fonts/titillium-web.regular-webfont.woff2') format('woff2'),
+         url('./fonts/titillium-web.regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'titillium_webbold';
+    src: url('./fonts/titillium-web.bold-webfont.woff2') format('woff2'),
+         url('./fonts/titillium-web.bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'titillium_webthin';
+    src: url('./fonts/titillium-web.thin-webfont.woff2') format('woff2'),
+         url('./fonts/titillium-web.thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+	box-sizing: border-box;
+}
+html {
+	height:100%;
+}
+body {
+	font-family: 'titillium_webregular';
+	margin: 0;
+    width: 100%;
+}
+
+a {
+    color:#ffffff;
+}
+
+a:visited {
+    color: #ffffff;
+  }
+
+.page-heading {
+	font-size: 44px;
+    font-family: 'titillium_webbold';
+    text-align: center;
+    margin: 0;
+    padding: 25px 0 0 0;
+    color: #ffffff;
+}
+
+h2 {
+	font-family: 'titillium_webbold';
+    font-size: 32px;
+    text-align: center;
+    color: #000000;
+}
+
+#header {
+    background-image: url("./images/MCG.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position: center;
+}
+
+#menu {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+#menu li {
+	list-style-type: none;
+	padding: 15px 0 0 25px;
+    color: #ffffff;
+}
+
+.display-div {
+	display: flex;
+	flex-wrap: wrap;
+	color: black;
+	justify-content: space-around;
+}
+	
+.winners-box {
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	flex: 33%;
+}
+
+.winners-image {
+	height: 200px;
+	width: 200px;
+    object-fit: cover;
+}
+
+.match-stats {
+	width: 65%;
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+	font-size: 18px;
+	position: relative;
+	bottom: 27px;
+	font-weight: 200;
+}
+
+h6.team-name {
+    font-family: 'titillium_webbold';
+    font-size: 20px;
+    text-align: center;
+    margin: 25px 0 0 0;
+}
+
+.match-stats p {
+    margin: 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 350px){
+	#menu {
+		padding: 5px;
+	}
+	#menu li {
+        font-size: 10px;
+        padding: 5px;
+	}
+}
