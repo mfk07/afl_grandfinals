@@ -25,6 +25,16 @@ function getData($db) {
 }
 
 /**
+ * Populates database with form inputs
+ *
+ * @param [type] $db
+ * @return void
+ */
+function sendData($db) {
+    $query = $db->prepare("INSERT into `grandfinals` (`Season`, `Premier`, `Runner-Up`, `Score`) VALUES $_POST('season'), $_POST('club-name'), $_POST('runners-up'), $_POST('score');");
+    $query->execute();
+
+/**
  * Access arrays from database
  *
  * @param array $finals
@@ -41,4 +51,5 @@ function getTeamData(array $finals): string {
         }
     } 
     return $team;
+}
 }

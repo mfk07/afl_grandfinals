@@ -9,6 +9,11 @@ $finals = getData($db);
 
 $winners = getTeamData($finals);
 
+$getSeason = $_POST('season');
+$getClubName = $_POST('club-name');
+$getSeason = $_POST('runners-up');
+$getSeason = $_POST('score');
+
 ?>
 
 <html lang="en">
@@ -36,20 +41,22 @@ $winners = getTeamData($finals);
         <?php echo $winners;?>
     </div>
 
-    <div>
-        <p>What was your favourite AFL GF? Fill in the form below to let us know!</p>
-        <form action='index.php' method='POST'>
-            <label for='search'>Season (year)</label>
-            <input type='text' id='season' name='season'/><br>
-            <label for='search'>Who won the flag?</label>
-            <input type='text' id='club_name' name='club_name'/><br>
-            <label for='search'>Who did they play?</label>
-            <input type='text' id='runners-up' name='runners-up'/><br>
-            <label for='search'>What was the score?</label>
-            <input type='text' id='score' name='score'/><br>
-            <input type='submit' />
-        </form>
-    </div>
+    <section>
+        <div class="form-box">
+            <p>What was your favourite AFL GF? Fill in the form below to let us know!</p>
+            <form action='index.php' method='POST'>
+                <label for='search'>Season (year)</label><br>
+                <input type='text' id='season' name='season'/><br>
+                <label for='search'>Who won the flag?</label><br>
+                <input type='text' id='club_name' name='club_name'/><br>
+                <label for='search'>Who did they play?</label><br>
+                <input type='text' id='runners-up' name='runners-up'/><br>
+                <label for='search'>What was the score? (GG.PP (TOTAL) d. (GG.PP (TOTAL))</label><br>
+                <input type='text' id='score' name='score'/><br>
+                <input type='submit'/>
+            </form>
+        </div>
+    </section>
 		</main>
 
 </html>
