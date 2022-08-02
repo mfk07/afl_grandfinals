@@ -8,9 +8,6 @@ $query->execute();
 
 $finals = $query->fetchAll();
 
-//create individual premiership data blocks
-//create display function that echos out the data
-
 function getTeamData(array $finals): string {
     $team = '';
     foreach($finals as $final) {
@@ -51,6 +48,21 @@ $winners = getTeamData($finals);
     <h2>2001 - 2021</h2>
     <div class="display-div">
         <?php echo $winners;?>
+    </div>
+
+    <div>
+        <p>What was your favourite AFL GF? Fill in the form below to let us know!</p>
+        <form action='index.php' method='POST'>
+            <label for='search'>Season (year)</label>
+            <input type='text' id='season' name='season'/><br>
+            <label for='search'>Who won the flag?</label>
+            <input type='text' id='club_name' name='club_name'/><br>
+            <label for='search'>Who did they play?</label>
+            <input type='text' id='runners-up' name='runners-up'/><br>
+            <label for='search'>What was the score?</label>
+            <input type='text' id='score' name='score'/><br>
+            <input type='submit' />
+        </form>
     </div>
 		</main>
 
