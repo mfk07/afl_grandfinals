@@ -30,10 +30,15 @@ function getData($db) {
  * @param [type] $db
  * @return void
  */
-function sendData($db) {
-    $query = $db->prepare("INSERT into `grandfinals` (`Season`, `Premier`, `Runner-Up`, `Score`) VALUES $_POST('season'), $_POST('club-name'), $_POST('runners-up'), $_POST('score');");
+function sendData($db, $getSeason, $getPremier, $getRunnersUp, $getScore) {
+    $query = $db->prepare("INSERT into `grandfinals` (`Season`, `Premier`, `Runner-Up`, `Score`) VALUES (:getSeason, :getPremier, :getRunnersUp, :getScore);");
+    $query->bindParam(':getSeason', $getSeason);
+    $query->bindParam(':getPremier', $getPremier);
+    $query->bindParam(':getRunnersUp', $getRunnersUp);
+    $query->bindParam(':getScore', $getScore);
     $query->execute();
-
+}
+    
 /**
  * Access arrays from database
  *
@@ -51,5 +56,4 @@ function getTeamData(array $finals): string {
         }
     } 
     return $team;
-}
 }
