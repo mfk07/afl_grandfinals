@@ -11,7 +11,7 @@ if(isset($_POST['season']) && isset($_POST['premier']) && isset($_POST['runners-
     $getRunnersUp = filter_var($_POST['runners-up'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $getScore = filter_var($_POST['score'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-sendData($db, $getSeason, $getPremier, $getRunnersUp, $getScore);
+    sendData($db, $getSeason, $getPremier, $getRunnersUp, $getScore);
 }
 
 $finals = getData($db);
