@@ -30,7 +30,7 @@ function getData($db) {
  * @param [type] $db
  * @return void
  */
-function sendData($db, $getSeason, $getPremier, $getRunnersUp, $getScore) {
+function sendData($db, $getSeason, $getPremier, $getRunnersUp, $getScore): void {
     $query = $db->prepare("INSERT into `grandfinals` (`Season`, `Premier`, `Runner-Up`, `Score`) VALUES (:getSeason, :getPremier, :getRunnersUp, :getScore);");
     $query->bindParam(':getSeason', $getSeason);
     $query->bindParam(':getPremier', $getPremier);
