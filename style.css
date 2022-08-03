@@ -126,6 +126,26 @@ h6.team-name {
     font-size: 16px;
 }
 
+.form-box {
+    border: solid;
+    display: flex;
+    width: 33%;
+    margin: 25px auto;
+    padding: 5px;
+    flex-flow: column wrap;
+    background-image: url("./images/fieldPhoto.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+label {
+    flex-basis: 30%;
+}
+
+input {
+    flex-basis: 30%;
+}
+
 @media only screen and (max-width: 350px){
 	#menu {
 		padding: 5px;

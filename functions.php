@@ -25,6 +25,21 @@ function getData($db) {
 }
 
 /**
+ * Populates database with form inputs
+ *
+ * @param [type] $db
+ * @return void
+ */
+function sendData($db, $getSeason, $getPremier, $getRunnersUp, $getScore) {
+    $query = $db->prepare("INSERT into `grandfinals` (`Season`, `Premier`, `Runner-Up`, `Score`) VALUES (:getSeason, :getPremier, :getRunnersUp, :getScore);");
+    $query->bindParam(':getSeason', $getSeason);
+    $query->bindParam(':getPremier', $getPremier);
+    $query->bindParam(':getRunnersUp', $getRunnersUp);
+    $query->bindParam(':getScore', $getScore);
+    $query->execute();
+}
+    
+/**
  * Access arrays from database
  *
  * @param array $finals
