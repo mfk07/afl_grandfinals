@@ -129,10 +129,13 @@ h6.team-name {
 .form-box {
     border: solid;
     display: flex;
-    width: 50%;
+    width: 33%;
     margin: 25px auto;
     padding: 5px;
     flex-flow: column wrap;
+    background-image: url("./images/fieldPhoto.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 label {

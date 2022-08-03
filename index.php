@@ -5,11 +5,11 @@ require_once 'functions.php';
 
 $db = getDb();
 
-if(isset($_POST['season'])) {
-    $getSeason = $_POST['season'];
-    $getPremier = $_POST['premier'];
-    $getRunnersUp = $_POST['runners-up'];
-    $getScore = $_POST['score'];
+if(isset($_POST['season']) && isset($_POST['premier']) && isset($_POST['runners-up']) && isset($_POST['score'])) {
+    $getSeason = filter_var($_POST['season'], FILTER_VALIDATE_INT);
+    $getPremier = filter_var($_POST['premier'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $getRunnersUp = filter_var($_POST['runners-up'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $getScore = filter_var($_POST['score'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 sendData($db, $getSeason, $getPremier, $getRunnersUp, $getScore);
 }
@@ -48,17 +48,18 @@ $winners = getTeamData($finals);
         <div class="form-box">
             <p>What was your favourite AFL GF? Fill in the form below to let us know!</p>
             <form action='index.php' method='POST'>
-                <label for='search'>Season (year)</label><br>
-                <input type='text' id='season' name='season'/><br>
+                <label class="form-label" for='search'>What year was the final played?</label><br>
+                <input type='text' id='season' name='season'/><br><br>
                 <label for='search'>Who won the flag?</label><br>
-                <input type='text' id='premier' name='premier'/><br>
+                <input type='text' id='premier' name='premier'/><br><br>
                 <label for='search'>Who did they play?</label><br>
-                <input type='text' id='runners-up' name='runners-up'/><br>
+                <input type='text' id='runners-up' name='runners-up'/><br><br>
                 <label for='search'>What was the score? (GG.PP (TOTAL) d. (GG.PP (TOTAL))</label><br>
-                <input type='text' id='score' name='score'/><br>
+                <input type='text' id='score' name='score'/><br><br>
                 <input type='submit'/>
             </form>
         </div>
+        <br>
     </section>
 		</main>
 
