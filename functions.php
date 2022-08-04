@@ -63,7 +63,8 @@ function getTeamData(array $finals): string
  *
  * @return int
  */
-function targetID(): int {
+function targetID(): int 
+{
     return $_POST['dataID'];
 }
 
