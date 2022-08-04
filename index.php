@@ -48,13 +48,13 @@ $winners = getTeamData($finals);
         <div class="form-box">
             <p>What was your favourite AFL GF? Fill in the form below to let us know!</p>
             <form action='index.php' method='POST'>
-                <label class="form-label" for='search'>What year was the final played?</label><br>
+                <label for='season'>What year was the final played?</label><br>
                 <input type='text' id='season' name='season'/><br><br>
-                <label for='search'>Who won the flag?</label><br>
+                <label for='premier'>Who won the flag?</label><br>
                 <input type='text' id='premier' name='premier'/><br><br>
-                <label for='search'>Who did they play?</label><br>
+                <label for='runners-up'>Who did they play?</label><br>
                 <input type='text' id='runners-up' name='runners-up'/><br><br>
-                <label for='search'>What was the score? (GG.PP (TOTAL) d. GG.PP (TOTAL))</label><br>
+                <label for='score'>What was the score? (GG.PP (TOTAL) d. GG.PP (TOTAL))</label><br>
                 <input type='text' id='score' name='score'/><br><br>
                 <input type='submit'/>
             </form>

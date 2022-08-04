@@ -5,7 +5,7 @@
  *
  * @return void
  */
-function getDb() 
+function getDb(): PDO
 {
     $db = new PDO('mysql:host=db; dbname=afl', 'root', 'password');
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -19,9 +19,9 @@ function getDb()
  * @param [type] $db
  * @return void
  */
-function getData($db) 
+function getData($db): array
 {
-    $query = $db->prepare("SELECT `id`, `Season`, `Premier`, `Runner-Up`, `Score`, `Image`, `Delete` FROM `grandfinals`;");
+    $query = $db->prepare("SELECT `id`, `Season`, `Premier`, `Runner-Up`, `Score`, `Image` FROM `grandfinals` WHERE `Delete` = '0';");
     $query->execute();
 
     return $query->fetchAll();
@@ -52,28 +52,22 @@ function sendData($db, $getSeason, $getPremier, $getRunnersUp, $getScore): void
 function getTeamData(array $finals): string 
 {
     $team = '';
-    foreach($finals as $final) {
-        if ($final === []) {
-            return 'Got data?';
-        } else {
-            if($final['Delete'] == '0') {
-                $team .= '<div class="winners-box">' .
-                        '<img src="'.$final['Image'].'" alt="Grandfinal team photo" class="winners-image">' . '<div class="match-stats"><h6 class="team-name">' . $final['Premier'] . '</h6><p>' . $final['Season'] . '</p><p>' . $final['Runner-Up'] . '</p><p>' . $final['Score'] . '</p></div>' . '<form action="delete.php" method="POST"><input type="submit" value="Delete"/>' . '<form class="edit" action="edit.php" method="POST"><input type="submit" value="Edit"/><input class="hidden" name="dataID" value="' . $final['id'] . '"></form></div>';
-            }   
-        }
-    } 
+    foreach($finals as $final) 
+        {
+        $team .= '<div class="winners-box">' . '<img src="'.$final['Image'].'" alt="Grandfinal team photo" class="winners-image">' . '<div class="match-stats"><h6 class="team-name">' . $final['Premier'] . '</h6><p>' . $final['Season'] . '</p><p>' . $final['Runner-Up'] . '</p><p>' . $final['Score'] . '</p></div>' . '<form action="delete.php" method="POST"><input type="submit" value="Delete"/>' . '<form class="edit" action="edit.php" method="POST"><input type="submit" value="Edit"/><input class="hidden" name="dataID" value="' . $final['id'] . '"></form></div>';
+        }    
     return $team;
 }
 
 /**
  * Targets the ID in the database
  *
- * @return void
+ * @return int
  */
-    function targetID()
-    {
-            return $_POST['dataID'];
-    }
+function targetID(): int
+{
+    return $_POST['dataID'];
+}
 
 /**
  * Removes selected ID from the front-end
@@ -86,5 +80,5 @@ function removeData($db, $id)
 {
     $query = $db->prepare("UPDATE `grandfinals` SET `Delete` = '1' WHERE `id`= ?;");
     $query->execute([$id]);
-    header('Location: index.php');
+    return true;
 }

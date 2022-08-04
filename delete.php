@@ -5,6 +5,10 @@ require_once 'functions.php';
 
 $id = targetID();
 $db = getDb();
-removeData($db, $id);
+$delete = removeData($db, $id);
+
+if($delete) {
+    header('Location: index.php');
+}
 
 ?>
