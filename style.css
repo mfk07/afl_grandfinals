@@ -150,8 +150,8 @@ input {
     display: none;
 }
 
-.edit {
-    padding: 0 0 0 15px;
+.editForms {
+    display: inline-block;
 }
 
 @media only screen and (max-width: 768px){
