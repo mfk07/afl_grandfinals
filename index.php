@@ -54,7 +54,7 @@ $winners = getTeamData($finals);
                 <input type='text' id='premier' name='premier'/><br><br>
                 <label for='search'>Who did they play?</label><br>
                 <input type='text' id='runners-up' name='runners-up'/><br><br>
-                <label for='search'>What was the score? (GG.PP (TOTAL) d. (GG.PP (TOTAL))</label><br>
+                <label for='search'>What was the score? (GG.PP (TOTAL) d. GG.PP (TOTAL))</label><br>
                 <input type='text' id='score' name='score'/><br><br>
                 <input type='submit'/>
             </form>

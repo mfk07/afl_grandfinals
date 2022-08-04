@@ -18,7 +18,7 @@ function getDb() {
  * @return void
  */
 function getData($db) {
-    $query = $db->prepare("SELECT `Season`, `Premier`, `Runner-Up`, `Score`, `Image` FROM `grandfinals`;");
+    $query = $db->prepare("SELECT `id`, `Season`, `Premier`, `Runner-Up`, `Score`, `Image`, `Delete` FROM `grandfinals`;");
     $query->execute();
 
     return $query->fetchAll();
@@ -52,8 +52,17 @@ function getTeamData(array $finals): string {
             return 'Got data?';
         } else {
             $team .= '<div class="winners-box">' .
-                        '<img src="'.$final['Image'].'" alt="Grandfinal team photo" class="winners-image">' . '<div class="match-stats"><h6 class="team-name">' . $final['Premier'] . '</h6><p>' . $final['Season'] . '</p><p>' . $final['Runner-Up'] . '</p><p>' . $final['Score'] . '</p></div></div>';
+                        '<img src="'.$final['Image'].'" alt="Grandfinal team photo" class="winners-image">' . '<div class="match-stats"><h6 class="team-name">' . $final['Premier'] . '</h6><p>' . $final['Season'] . '</p><p>' . $final['Runner-Up'] . '</p><p>' . $final['Score'] . '</p></div>' . '<form action="delete.php" method="POST"><input type="submit" value="Delete"/><input name="dataID" value="' . $final['id'] . '"></form></div>';
         }
     } 
     return $team;
 }
+
+/**
+ * Targets the ID in the database
+ *
+ * @return void
+ */
+    function targetID() {
+            return $_POST['dataID'];
+    }

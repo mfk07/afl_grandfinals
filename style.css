@@ -146,7 +146,7 @@ input {
     flex-basis: 30%;
 }
 
-@media only screen and (max-width: 350px){
+@media only screen and (max-width: 768px){
 	#menu {
 		padding: 5px;
 	}
@@ -154,4 +154,7 @@ input {
         font-size: 10px;
         padding: 5px;
 	}
+    .form-box {
+        width: 75%;
+    }
 }
