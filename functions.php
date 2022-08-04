@@ -100,7 +100,7 @@ function prefillEditData(array $singleData): string
 }
 
 /**
- * Undocumented function
+ * Connects edits to the database to update the index page
  *
  * @param [type] $db
  * @param [type] $editSeason
@@ -115,9 +115,6 @@ function editData($db, $editSeason, $editPremier, $editRunnersUp, $editScore, $i
     $query = $db->prepare("UPDATE `grandfinals` SET `Season` =  '$editSeason', `Premier` =  '$editPremier', `Runner-Up` =  '$editRunnersUp', `Score` = '$editScore' WHERE `id` = :id;");
     $query->bindParam(':id', $id);
     $query->execute();
-
-  
     return true;
-    
 }
 
