@@ -54,7 +54,7 @@ function getTeamData(array $finals): string
     $team = '';
     foreach($finals as $final) 
         {
-        $team .= '<div class="winners-box">' . '<img src="'.$final['Image'].'" alt="Grandfinal team photo" class="winners-image">' . '<div class="match-stats"><h6 class="team-name">' . $final['Premier'] . '</h6><p>' . $final['Season'] . '</p><p>' . $final['Runner-Up'] . '</p><p>' . $final['Score'] . '</p></div>' . '<form action="delete.php" method="POST"><input type="submit" value="Delete"/>' . '<form class="edit" action="edit.php" method="POST"><input type="submit" value="Edit"/><input class="hidden" name="dataID" value="' . $final['id'] . '"></form></div>';
+        $team .= '<div class="winners-box">' . '<img src="'.$final['Image'].'" alt="Grandfinal team photo" class="winners-image">' . '<div class="match-stats"><h6 class="team-name">' . $final['Premier'] . '</h6><p>' . $final['Season'] . '</p><p>' . $final['Runner-Up'] . '</p><p>' . $final['Score'] . '</p></div>' . '<form action="delete.php" method="POST"><input type="submit" value="Delete"/><input class="hidden" name="dataID" value="' . $final['id'] . '"></form>' . '<form class="edit" action="edit.php" method="POST"><input type="submit" value="Edit"/><input class="hidden" name="dataID" value="' . $final['id'] . '"></form></div>';
         }    
     return $team;
 }
@@ -64,8 +64,7 @@ function getTeamData(array $finals): string
  *
  * @return int
  */
-function targetID(): int
-{
+function targetID(): int {
     return $_POST['dataID'];
 }
 
@@ -82,3 +81,29 @@ function removeData($db, $id)
     $query->execute([$id]);
     return true;
 }
+
+function getSingleData($db, $id): array
+{
+    $query = $db->prepare("SELECT `Season`, `Premier`, `Runner-Up`, `Score`, `Image` FROM `grandfinals` WHERE `id` = $id;");
+    $query->execute();
+
+    return $query->fetchAll();
+}  
+
+function prefillEditData(array $singleData): string 
+{
+    foreach($singleData as $index) 
+        {
+        $data = '<form action="edit.php" method="POST">' .  '<label for="editSeason">What year was the final played?</label><br>' . '<input type="text" id="season" name="editSeason"/><br><br>' . '<label for="editPremier">Who won the flag?</label><br>' . '<input type="text" id="premier" name="editPremier"/><br><br>' . '<label for="editRunnersUp">Who did they play?</label><br>' . '<input type="text" id="runnersUp" name="editRunnersUp"/><br><br>' . '<label for="editScore">What was the score? (GG.PP (TOTAL) d. GG.PP (TOTAL))</label><br>' . '<input type="text" id="score" name="editScore"/><br><br>' . '<input class="hidden" name="dataID" value="' . $final['id'] . '">' . '<input type="submit"/>' . '</form>';
+        
+        }    
+    return $data;
+}
+
+function editData($db, $editSeason, $editPremier, $editRunnersUp, $editScore, $id) 
+{
+    $query = $db->prepare("UPDATE `grandfinals` SET `Premier` =   WHERE `id`= ?;");
+    $query->execute([$id]);
+    return true;
+}
+
