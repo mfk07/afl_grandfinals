@@ -21,6 +21,7 @@ $prefillEditData = prefillEditData($singleData);
 	<header id="header">
         <nav>
             <ul id="menu">
+                <li><a href=index.php target="_blank">Home</a></li>
                 <li><a href=https://www.afl.com.au/fixture?Competition=1&CompSeason=43&MatchTimezone=MY_TIME&Regions=3&ShowBettingOdds=1&GameWeeks=21&Teams=1&Venues=13#byround target="_blank">Fixtures</a></li>
                 <li><a href=https://www.afl.com.au/ladder?Competition=1&CompSeason=43&GameWeeks=608&ShowBettingOdds=1&Live=0 target="_blank">Ladder</a></li>
                 <li><a href=https://www.afl.com.au/stats/?category=Key+Stats&seasonId=43&roundId=-1&roundNumber=0&sortColumn=dreamTeamPoints&sortDirection=descending&positions=All&teams=All&benchmarking=false&dataType=totals&playerOneId=null&playerTwoId=null target="_blank">Player Stats</a></li>

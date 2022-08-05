@@ -94,7 +94,7 @@ function prefillEditData(array $singleData): string
 {
     foreach($singleData as $index) 
         {
-        $data = '<div class="winners-box"><form class="editForms" action="hiddenEdit.php" method="POST"><label for="editSeason">What year was the final played?</label><br><input type="text" id="season" name="editSeason" value="'.$index['Season'].'"/><br><br>' . '<label for="editPremier">Who won the flag?</label><br>' . '<input type="text" id="premier" name="editPremier" value="'.$index['Premier'].'"/><br><br>' . '<label for="editRunnersUp">Who did they play?</label><br>' . '<input type="text" id="runnersUp" name="editRunnersUp" value="'.$index['Runner-Up'].'"/><br><br>' . '<label for="editScore">What was the score? (GG.PP (TOTAL) d. GG.PP (TOTAL))</label><br>' . '<input type="text" id="score" name="editScore" value="'.$index['Score'].'"/><br><br>' . '<input class="hidden" name="dataID" value="' . $index['id'] . '">' . '<input type="submit"/>' . '</form></div>';
+        $data = '<div class="winners-box"><form class="editForms" action="hiddenEdit.php" method="POST"><label for="editSeason">What year was the final played (YYYY)?</label><br><input type="text" id="season" name="editSeason" value="'.$index['Season'].'"/><br><br>' . '<label for="editPremier">Who won the flag?</label><br>' . '<input type="text" id="premier" name="editPremier" value="'.$index['Premier'].'"/><br><br>' . '<label for="editRunnersUp">Who did they play?</label><br>' . '<input type="text" id="runnersUp" name="editRunnersUp" value="'.$index['Runner-Up'].'"/><br><br>' . '<label for="editScore">What was the score? (GG.PP (TOTAL) d. GG.PP (TOTAL))</label><br>' . '<input type="text" id="score" name="editScore" value="'.$index['Score'].'"/><br><br>' . '<input class="hidden" name="dataID" value="' . $index['id'] . '">' . '<input type="submit"/>' . '</form></div>';
         }    
     return $data;
 }
@@ -107,10 +107,10 @@ function prefillEditData(array $singleData): string
  * @param [string] $editPremier
  * @param [string] $editRunnersUp
  * @param [string] $editScore
- * @param [string] $id
+ * @param [int] $id
  * @return bool
  */
-function editData($db, $editSeason, $editPremier, $editRunnersUp, $editScore, $id) 
+function editData(PDO $db, int $editSeason, string $editPremier, string $editRunnersUp, string $editScore, int $id) 
 {
     $query = $db->prepare("UPDATE `grandfinals` SET `Season` =  '$editSeason', `Premier` =  '$editPremier', `Runner-Up` =  '$editRunnersUp', `Score` = '$editScore' WHERE `id` = :id;");
     $query->bindParam(':id', $id);

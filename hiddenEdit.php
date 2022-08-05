@@ -6,9 +6,8 @@ $id = targetID();
 $db = getDb();
 $editSeason = filter_var($_POST['editSeason'], FILTER_VALIDATE_INT);
 if (filter_var($_POST['editSeason'], FILTER_VALIDATE_INT)) {
-    echo $editSeason;
 } else {
-    echo ("You need to enter a year (e.g. 1985). Go back to try again.");
+    header('Location: index.php');
     return;
 }
 $editPremier = filter_var($_POST['editPremier'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
